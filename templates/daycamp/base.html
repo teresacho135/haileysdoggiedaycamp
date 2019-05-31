@@ -1,8 +1,21 @@
+{% load staticfiles %}
 <html>
   <head>
     <title>Hailey's Dog Camp</title>
   </head>
   <body>
     <h1>Hailey's Dog Camp</h1>
+    <nav>
+        <div class="user-info">
+            {% if user.is_authenticated %}
+                Welcome, {{ user.username }}
+                <a href="">Signout</a>
+            {% else %}
+                <a href="{% url 'login'%}">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %}
+    {% end content %}
   </body>
 </html>
