@@ -4,6 +4,8 @@ from django.contrib import auth
 # IMPORT
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -52,3 +54,20 @@ def login(request):
 
     else:
         return render(request, 'accounts/login.html')
+
+@login_required
+def profile_create(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm()
+    return render(request, 'accounts/profile_form.html', {'form': form})
+
+def logout(request):
+    auth.logout(request)
+    return redirect('register') #make into landing later
