@@ -5,14 +5,14 @@
       <div class="username">
         <h1>Username: {{ profile.user.username }}</h1>
       </div>
-      <form action= "{% url 'profile'%}" method="POST">
+      <div class="user">
+        <p>Email: {{ profile.user.email }}</p>
+      </div>
+      <form action="{% url 'profile'%}" class='profile-form' method="POST">
         {% csrf_token %}
           {{ form.as_p }}
             <button type="submit">Submit</button>
       </form>
-      <div class="user">
-        <p>Email: {{ profile.user.email }}</p>
-      </div>
     </div>
   </div>
   </div>
