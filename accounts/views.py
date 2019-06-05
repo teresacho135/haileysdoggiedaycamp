@@ -35,6 +35,8 @@ def register(request):
           )
           user.save()
 
+          Profile.objects.create(user_id=user.id)
+
           return redirect('login')
     else:
       return render(request, 'accounts/register.html', {'error': 'Passwords do not match'})
@@ -57,9 +59,24 @@ def login(request):
     else:
         return render(request, 'accounts/login.html')
 
+@login_required
 def profile(request):
-  profile = request.user.profile
-  return render(request, 'accounts/profile.html', {'profile': profile})
+  user = request.user
+  profile = Profile.objects.filter(user=request.user).first()
+  
+  if request.method == 'POST':
+    form = ProfileForm(request.POST, instance=profile)
+    if form.is_valid():
+      profile = form.save(commit=False)
+      profile.user = request.user
+      profile.save()  
+      return redirect('profile')
+  else:
+    if profile == None:
+      form = ProfileForm()
+      return render(request, 'accounts/profile.html', {'form': form})
+    form = ProfileForm(instance=profile)
+  return render(request, 'accounts/profile.html', {'profile': profile, 'form': form})
 
 
 @login_required
