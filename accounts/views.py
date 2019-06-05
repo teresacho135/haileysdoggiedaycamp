@@ -13,7 +13,6 @@ from .models import Profile
 def register(request):
   if request.method == 'POST':
     #GET form values
-    name = request.POST['name']
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
@@ -32,13 +31,15 @@ def register(request):
         else: 
           #Register User
           user = User.objects.create_user(
-            username=username, password=password, email=email, name=name)
+            username=username, password=password, email=email
+          )
           user.save()
+
           return redirect('login')
     else:
       return render(request, 'accounts/register.html', {'error': 'Passwords do not match'})
   else:
-    return render(request, 'accounts/register/html')
+    return render(request, 'accounts/register.html')
 
 def login(request):
     if request.method == "POST":
@@ -49,12 +50,17 @@ def login(request):
 
       if user is not None:
         auth.login(request, user)
-        return redirect('campers_list')
+        return redirect('profile')
       else:
         return render(request, 'accounts/login.html', {'error': 'Invalid Credentials...'})
 
     else:
         return render(request, 'accounts/login.html')
+
+def profile(request):
+  profile = request.user.profile
+  return render(request, 'accounts/profile.html', {'profile': profile})
+
 
 @login_required
 def profile_create(request):
