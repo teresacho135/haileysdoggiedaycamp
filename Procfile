@@ -1,0 +1,1 @@
+web: gunicorn daycamp_project.wsgi

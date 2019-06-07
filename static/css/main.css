@@ -1,0 +1,18 @@
+* {
+  font-family: 'Fredoka One', cursive;
+}
+
+/* Base.html */
+.body {
+  background-color: white;
+  margin: 2.5vh 5vw;
+}
+
+/* Landing */
+.landing-header {
+  font-size: 100px;
+  color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

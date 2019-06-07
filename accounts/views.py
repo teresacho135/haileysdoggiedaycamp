@@ -70,7 +70,7 @@ def profile(request):
       profile = form.save(commit=False)
       profile.user = request.user
       profile.save()  
-      return redirect('profile')
+      return redirect('camper')
   else:
     if profile == None:
       form = ProfileForm()
@@ -94,4 +94,4 @@ def profile_create(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('register') #make into landing later
+    return redirect('landing') #make into landing later
