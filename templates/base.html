@@ -1,15 +1,14 @@
-{% load staticfiles %}
+{% load static %}
 <html>
 	<head>
 		<title>Hailey's Dog Camp</title>
     		<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+				<link rel="stylesheet" href="{% static 'css/main.css' %}">
+				<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="db dt-l w-100 border-box pa3 ph5-l">
-			<div class="logo-block">
-				<a href="/" title="Home">
-				</a>
-			</div>
+				<a href="/" class="link dim dark-gray f6 f5-l dib mr3 mr4-l" title="Home">Hailey's Dog Camp</a>
 			<div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
 				{% if user.is_authenticated %}
 				<a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="{% url 'profile' %}">
