@@ -81,16 +81,20 @@ def profile(request):
 
 @login_required
 def profile_create(request):
-    if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            return redirect('profile')
-    else:
+  user = request.user
+  profile = Profile.objects.filter(user=request.user).first()
+  print(profile.user.username)
+
+  if request.method == 'POST':
+      form = ProfileForm(request.POST)
+      if form.is_valid():
+         profile = form.save(commit=False)
+         profile.user = request.user
+         profile.save()
+      return redirect('profile')
+  else:
         form = ProfileForm()
-    return render(request, 'accounts/profile_form.html', {'form': form})
+  return render(request, 'accounts/profile_form.html', {'form': form, 'profile': profile})
 
 def logout(request):
     auth.logout(request)
