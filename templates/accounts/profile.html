@@ -7,6 +7,9 @@
       </div>
       <div class="user">
         <p>Email: {{ profile.user.email }}</p>
+        <p>Profile Picture: {{ profile.profile_picture }}</p>
+        <p>Veterinarian Emergency Contact: {{ profile.vet_info }}</p>
+        <p>Best Time To Contact: {{ profile.contact_info }}</p>
       </div>
             <a href="{% url 'profile_create' %}">Additional Form</a>
     </div>
