@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<main>
+  <div class="profile-container">
+    <div class="user-info">
+      <div class="username">
+        <h1>Username: {{ profile.user.username }}</h1>
+      </div>
+      <div class="user">
+        <p>Email: {{ profile.user.email }}</p>
+      </div>
+      <form action="{% url 'profile'%}" class='profile-form' method="POST">
+        {% csrf_token %}
+          {{ form.as_p }}
+            <button type="submit">Submit</button>
+            <a href="{% url 'profile_create' %}">Update Form</a>
+      </form>
+    </div>
+  </div>
+  </div>
+</main>
+{% endblock %}
