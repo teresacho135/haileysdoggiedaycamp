@@ -13,6 +13,7 @@ from .models import Profile
 def register(request):
   if request.method == 'POST':
     #GET form values
+    # name = request.POST['name']
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
@@ -62,38 +63,43 @@ def login(request):
 @login_required
 def profile(request):
   user = request.user
-  profile = Profile.objects.filter(user=request.user).first()
+  profile = Profile.objects.get(user=request.user.id)
+
+
   
-  if request.method == 'POST':
-    form = ProfileForm(request.POST, instance=profile)
-    if form.is_valid():
-      profile = form.save(commit=False)
-      profile.user = request.user
-      profile.save()  
-      return redirect('camper')
-  else:
-    if profile == None:
-      form = ProfileForm()
-      return render(request, 'accounts/profile.html', {'form': form})
-    form = ProfileForm(instance=profile)
-  return render(request, 'accounts/profile.html', {'profile': profile, 'form': form})
+  # if request.method == 'POST':
+  #   form = ProfileForm(request.POST, instance=profile)
+  #   if form.is_valid():
+  #     profile = form.save(commit=False)
+  #     profile.user = request.user
+  #     profile.save()  
+  #     return redirect('camper')
+  # else:
+  #   if profile == None:
+  #     form = ProfileForm()
+  #     return render(request, 'accounts/profile.html', {'form': form})
+  #   form = ProfileForm(instance=profile)
+  print(profile)
+  return render(request, 'accounts/profile.html', {'profile': profile})
 
 
 @login_required
 def profile_create(request):
   user = request.user
-  profile = Profile.objects.filter(user=request.user).first()
-  print(profile.user.username)
+  profile = Profile.objects.get(user=request.user.id)
 
   if request.method == 'POST':
-      form = ProfileForm(request.POST)
-      if form.is_valid():
-         profile = form.save(commit=False)
-         profile.user = request.user
-         profile.save()
-      return redirect('profile')
+    form = ProfileForm(request.POST, instance=profile)
+    if form.is_valid():
+      profile = form.save(commit=False)
+      profile.user = request.user
+      profile.save()
+      return redirect('camper')
   else:
+      if profile == None:
         form = ProfileForm()
+        return render(request, 'accounts/profile.html', {'form': form})
+      form = ProfileForm(instance=profile)
   return render(request, 'accounts/profile_form.html', {'form': form, 'profile': profile})
 
 def logout(request):
