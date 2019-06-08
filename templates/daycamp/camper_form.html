@@ -3,19 +3,22 @@
   <div class="camper-container">
     <div class="camper-info">
       <div class="camper-name">
-        <h1>Camper Name: {{ campers.pet_name }}</h1>
+        <h1>Camper Form</h1>
       </div>
       <div class="camper">
-        <p>Owner: {{ profile.user.email }}</p>
-      </div>
+    {% if camper %}
+      <form action="{% url 'camper_edit' pk=camper.pk %}" class='camper-form' method="POST">
+    {% else %}  
       <form action="{% url 'camper_create' %}" class='camper-form' method="POST">
+    {% endif %}
         {% csrf_token %}
           {{ form.as_p }}
-            <<button type="submit">Submit</button>>
+            <button type="submit">Submit</button>
             <a href="{% url 'camper' %}">Cancel</a>
       </form>
     </div>
   </div>
   </div>
+      </div>
 </main>
 {% endblock %}

@@ -8,7 +8,7 @@
       <div class="user">
         <p>Email: {{ profile.user.email }}</p>
       </div>
-      <form action="{% url 'profile_create'%}" class='profile-form' method="POST">
+      <form action="{% url 'profile_create' %}" class='profile-form' method="POST">
         {% csrf_token %}
           {{ form.as_p }}
             <button type="submit">Submit</button>
