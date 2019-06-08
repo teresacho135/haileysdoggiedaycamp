@@ -56,3 +56,21 @@ def camper_create(request):
   else:  
     form = CamperForm()
   return render(request, 'daycamp/camper_form.html', {'form':form})
+
+@login_required
+def camper_edit(request, pk): 
+  camper = Camper.objects.get(pk=pk)
+  print (camper)
+  if request.method == 'POST':
+    form = CamperForm(request.POST, instance=camper)
+    if form.is_valid():
+      camper = camper.save()
+      return redirect('camper')
+    else:
+      form = CamperForm(instance=camper)
+    return render(request, 'daycamp/camper_form.html', {'form':form})
+
+@login_required
+def camper_delete(request, pk):
+  Camper.objects.get(id=pk).delete()
+  return redirect('camper')

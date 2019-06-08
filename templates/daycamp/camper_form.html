@@ -6,7 +6,8 @@
         <h1>Camper Form</h1>
       </div>
       <div class="camper">
-    {% if camper %}
+      {% comment %} if instance of camper {% endcomment %}
+    {% if camper %} 
       <form action="{% url 'camper_edit' pk=camper.pk %}" class='camper-form' method="POST">
     {% else %}  
       <form action="{% url 'camper_create' %}" class='camper-form' method="POST">
