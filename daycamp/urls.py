@@ -13,6 +13,8 @@ urlpatterns = [
 
   # API Views
   path('camper/', views.camper, name='camper'),
+  path('camper/<int:pk>', views.camper_detail, name='camper_detail'),
+  path('camper/new', views.camper_create, name='camper_create')
   # path('answer', views.send_answer, name='send_answer'),
   # path('vote', views.send_vote, name='send_vote'),
   # path('comment', views.send_comment, name='send_comment'),
