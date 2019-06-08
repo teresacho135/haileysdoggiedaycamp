@@ -1,8 +1,46 @@
-{% extends 'base.html' %} 
-{% block content %}
-<h1>Camper</h1>
-
-
-
-
+{% extends 'base.html' %} {% block content %}
+<main>
+{% comment %} {% if campers %} {% endcomment %}
+{%if request.user.is_superuser%}
+  <p>Hello Hailey!</p>
+{% endif %}
+{% for camper in campers %}
+  <div class="camper-container">
+    <div class="camper-info">
+      <div class="camper-name">
+        <h1>Camper: {{ camper.pet_name }}</h1>
+      </div>
+        <p>Age: {{ camper.age }}</p>
+        <p>Current Camper: {{ camper.isActive }}</p>
+        <p>Food Amount: {{ camper.food_amount }}</p>
+        <p>Medicine Instructions: {{ camper.medicine }}</p>
+        <p>Camper's Owner: {{ camper.owner }}</p>
+            <a href="{% url 'camper_detail' pk=camper.pk %}">{{ camper.pet_name}}</a>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+  <br>
+  <a href="{% url 'camper_create' %}"><h2>Add a Camper</h2></a>
+  {% comment %} {%else%}
+  <div class="campers-container">
+    <div class="campers-info">
+      <div class="campers-name">
+        <h1>Camper: {{ camper.pet_name }}</h1>
+        {%if request.user.is_superuser %}
+        <p>Hello Hailey!</p>
+        {% endif %}
+      </div>
+        <p>Camper: {{ camper.pet_name }}</p>
+        <p>Age: {{ camper.age }}</p>
+        <p>Current Camper: {{ camper.isActive }}</p>
+        <p>Food Amount: {{ camper.food_amount }}</p>
+        <p>Medicine Instructions: {{ camper.medicine }}</p>
+        <p>Camper's Owner: {{ camper.owner }}</p>
+            <a href="{% url 'camper_create' %}">Camper Form</a>
+    </div>
+  </div>
+  </div>
+  {% endif %} {% endcomment %}
+</main>
 {% endblock %}
