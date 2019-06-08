@@ -64,21 +64,6 @@ def login(request):
 def profile(request):
   user = request.user
   profile = Profile.objects.get(user=request.user.id)
-
-
-  
-  # if request.method == 'POST':
-  #   form = ProfileForm(request.POST, instance=profile)
-  #   if form.is_valid():
-  #     profile = form.save(commit=False)
-  #     profile.user = request.user
-  #     profile.save()  
-  #     return redirect('camper')
-  # else:
-  #   if profile == None:
-  #     form = ProfileForm()
-  #     return render(request, 'accounts/profile.html', {'form': form})
-  #   form = ProfileForm(instance=profile)
   print(profile)
   return render(request, 'accounts/profile.html', {'profile': profile})
 
@@ -94,7 +79,7 @@ def profile_create(request):
       profile = form.save(commit=False)
       profile.user = request.user
       profile.save()
-      return redirect('camper')
+      return redirect('profile')
   else:
       if profile == None:
         form = ProfileForm()
@@ -104,4 +89,4 @@ def profile_create(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('landing') #make into landing later
+    return redirect('landing') 
