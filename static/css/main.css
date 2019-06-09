@@ -1,6 +1,5 @@
 * {
   font-family: 'Staatliches', cursive; 
-  border: 1px solid red;
 }
 
 /* Base.html */
@@ -12,6 +11,9 @@ nav {
   position: relative;
 }
 
+nav a{
+  width: 108px;
+}
 
 /* Landing */
 .landing-header {
@@ -24,7 +26,7 @@ nav {
 
 .fullscreen {
   background-image: url("static/assets/landing.jpg");
-  height: 325vh;
+  height: 267vh;
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,12 +40,22 @@ nav {
   margin: auto;
   width: 50%;
   padding: 10px;
+  text-align: center;
+  position: relative;
+  top: 112;
 }
 
 .bio p{
   font-size: 25px;
   margin: auto;
   padding: 10px;
+  height: 81vh;
+  text-align: center;
+  position: relative;
+  top: 98;
+}
+
+.current-camper{
   height: 100vh;
 }
 
@@ -55,4 +67,30 @@ nav {
   padding: 80px;
 }
 
-/* Register */
+.contact-me {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  top: 160;
+}
+
+.contact-me h2 {
+  font-size: 100px;
+  text-align: center;
+}
+
+.landing-contact {
+  text-align: center;
+}
+
+#message {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.footer {
+  position: relative;
+  top: -80px;
+}
+/* Login */
