@@ -29,22 +29,6 @@ def camper(request):
 
 @login_required 
 def camper_create(request):
-  # user = request.user
-  # camper = Camper.objects.get(owner = request.user)
-  
-  # if request.method == 'POST':
-  #   form = CamperForm(request.POST, instance=camper)
-  #   if form.is_valid():
-  #     camper = form.save(commit=False)
-  #     camper.user = camper.user
-  #     camper.save()
-  #     return redirect('camper')
-  # else:
-  #     if camper == None:
-  #       form = CamperForm()
-  #       return render(request, 'daycamp/camper.html', {'form': form})
-  #     form = CamperForm(instance=camper)
-  # return render(request, 'daycamp/camper.html', {'form': form, 'camper': camper})
   if request.method == 'POST':
     form = CamperForm(request.POST)
     if form.is_valid():
