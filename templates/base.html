@@ -10,7 +10,7 @@
 	<body>
 	<div class="navbar">
 		<nav class="db dt-l w-100 border-box pa3 ph5-l">
-				<a href="/" class="link dim dark-gray f6 f5-l dib mr3 mr4-l" title="Home">Hailey's Dog Camp</a>
+				<a href="/" id="home-btn" class="link dim dark-gray f6 f5-l dib mr3 mr4-l" title="Home">Hailey's Dog Camp</a>
 			<div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
 				{% if user.is_authenticated %}
 				<a class="link dim dark-gray f6 f5-l dib mr3 mr4-l" href="{% url 'profile' %}">
