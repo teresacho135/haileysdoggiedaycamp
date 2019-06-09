@@ -1,18 +1,58 @@
 * {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Staatliches', cursive; 
+  border: 1px solid red;
 }
 
 /* Base.html */
 .body {
   background-color: white;
-  margin: 2.5vh 5vw;
 }
+
+nav {
+  position: relative;
+}
+
 
 /* Landing */
 .landing-header {
   font-size: 100px;
-  color: red;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  color: black;
+  position: absolute;
+  left: 570;
+  top: 300;
 }
+
+.fullscreen {
+  background-image: url("static/assets/landing.jpg");
+  height: 325vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.bio {
+  width: 100vw;
+  color: black;
+  font-size: 100px;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.bio p{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  height: 100vh;
+}
+
+.current-campers h2 {
+  font-size:100px;
+  color: black;
+  margin: auto;
+  width: 50%;
+  padding: 80px;
+}
+
+/* Register */
