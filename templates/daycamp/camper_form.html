@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+  <div class="camper-container">
+    <div class="camper-info">
+      <div class="camper-name">
+        <h1>Camper Form</h1>
+      </div>
+      <div class="camper">
+      {% comment %} if instance of camper {% endcomment %}
+    {% if camper %} 
+      <form action="{% url 'camper_edit' pk=camper.pk %}" class='camper-form' method="POST">
+    {% else %}  
+      <form action="{% url 'camper_create' %}" class='camper-form' method="POST">
+    {% endif %}
+        {% csrf_token %}
+          {{ form.as_p }}
+          <div class="camper-btns">
+            <button type="submit">Submit</button>
+            <a href="{% url 'camper' %}">Cancel</a>
+          </div>
+      </form>
+    </div>
+  </div>
+  </div>
+      </div>
+</main>
+{% endblock %}

@@ -1,18 +1,307 @@
 * {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Staatliches', cursive; 
+  /* border: 1px solid red; */
+  scroll-behavior: smooth;
 }
 
 /* Base.html */
 .body {
   background-color: white;
-  margin: 2.5vh 5vw;
+}
+
+nav {
+  position: relative;
+}
+
+nav a{
+  width: 108px;
+}
+
+#home-btn {
+  font-size: 15px;
+  width: 100px;
 }
 
 /* Landing */
 .landing-header {
   font-size: 100px;
-  color: red;
+  color: black;
+  position: absolute;
+  left: 570;
+  top: 300;
+}
+
+.fullscreen {
+  background-image: url("static/assets/landing.jpg");
+  height: 267vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.bio {
+  width: 100vw;
+  color: black;
+  font-size: 100px;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  top: 112;
+}
+
+.bio p{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  height: 81vh;
+  text-align: center;
+  position: relative;
+  top: 98;
+}
+
+.current-camper{
+  height: 100vh;
+}
+
+.current-campers h2 {
+  font-size:100px;
+  color: black;
+  margin: auto;
+  width: 50%;
+  padding: 80px;
+}
+
+.contact-me {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  top: 160;
+}
+
+.contact-me h2 {
+  font-size: 100px;
+  text-align: center;
+}
+
+.landing-contact {
+  text-align: center;
+}
+
+#message {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.footer {
+  position: relative;
+  top: -80px;
+}
+/* Login */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-styling {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-styling a {
+  color: black;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 4px solid grey;
+  padding: 5px;
+}
+
+.profile-form-btn {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 4px solid grey;
+}
+
+.username {
+  width: 600px;
+}
+
+.username h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+}
+
+.user{
+  width: 440px;
+}
+
+.user p {
+  margin: auto;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 20px;
+}
+
+/* Profile Styling */
+
+.user p {
+  font-size: 25px;
+}
+
+.profile-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-btns a {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 4px solid grey;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+/* Register */
+.register-form {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.register-btn {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Camper Form */
+.camper-name {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.camper {
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+}
+
+.camper input {
+  width: 70%;
+}
+
+.camper textarea {
+  width: 70%;
+  height: 55px;
+}
+
+.camper-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camper-btns button {
+  color: black;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 4px solid grey;
+  padding: 5px;
+}
+
+.camper-btns a {
+  color: black;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 4px solid grey;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.camper p #is_isActive {
+  width: 20%;
+}
+
+/* Camper */
+.superuser-header p {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.camper-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camper-name h1 {
+  width: 400px;
+}
+
+.camper-info p {
+  font-size: 25px;
+  word-spacing: 3px;
+}
+
+.camper-info-btns {
+  font-size: 20px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camper-info-btns a {
+  color: black;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 4px solid grey;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.camper-create-btn a {
+  font-size: 20px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
