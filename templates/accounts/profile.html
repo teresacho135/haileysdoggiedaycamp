@@ -11,8 +11,10 @@
         <p>Veterinarian Emergency Contact: {{ profile.vet_info }}</p>
         <p>Best Time To Contact: {{ profile.contact_info }}</p>
       </div>
+        <div class="profile-btns">
             <a href="{% url 'profile_create' %}">Emergency Contact</a>
             <a href="{% url 'camper' %}">Your Camper</a>
+        </div>
     </div>
   </div>
   </div>
