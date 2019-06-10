@@ -2,6 +2,7 @@
 <main>
 {% comment %} {% if campers %} {% endcomment %}
 {%if request.user.is_superuser%}
+<div class="superuser-header">
   <p>Hello Hailey!</p>
 {% endif %}
 {% for camper in campers %}
@@ -10,18 +11,24 @@
       <div class="camper-name">
         <h1>Camper: {{ camper.pet_name }}</h1>
       </div>
+      <div class="camper-info">
         <p>Age: {{ camper.age }}</p>
         <p>Current Camper: {{ camper.isActive }}</p>
         <p>Food Amount: {{ camper.food_amount }}</p>
         <p>Medicine Instructions: {{ camper.medicine }}</p>
         <p>Camper's Owner: {{ camper.owner }}</p>
+      </div>
+          <div class="camper-info-btns">
             <a href="{% url 'camper_detail' pk=camper.pk %}">{{ camper.pet_name}}</a>
             <a href="{% url 'camper_delete' pk=camper.pk %}">Remove Camper</a>
+          </div>
     </div>
   </div>
   </div>
   {% endfor %}
   <br>
+<div class="camper-create-btn">
   <a href="{% url 'camper_create' %}"><h2>Add a Camper</h2></a>
+</div>
 </main>
 {% endblock %}
