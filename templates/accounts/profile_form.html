@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% load crispy_forms_tags %}
 <main>
   <div class="profile-container">
     <div class="user-info">
@@ -10,9 +11,12 @@
       </div>
       <form action="{% url 'profile_create' %}" class='profile-form' method="POST">
         {% csrf_token %}
-          {{ form.as_p }}
-            <button type="submit">Submit</button>
+          {% comment %} {{ form.as_p }} {% endcomment %}
+         {{ form|crispy }}
+         <div class="button-styling">
+            <button class="profile-form-btn" type="submit">Submit</button>
             <a href="{% url 'profile' %}">Cancel</a>
+          </div>
       </form>
     </div>
   </div>

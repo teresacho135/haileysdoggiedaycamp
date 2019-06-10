@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-<h2>Register</h2>
 
 {% if error %}
 <p style="background-color: red; padding: 10px;">{{ error }}</p>
@@ -8,35 +7,37 @@
 <div class="register-form">
 <form action="{% url 'register' %}" method="POST">
         {% csrf_token %}
-
+<div class="register-form">
 <main class="pa4 black-80">
   <form class="measure center">
     <fieldset id="register" class="ba b--transparent ph0 mh0">
-      <legend class="f4 fw6 ph0 mh0">Register</legend>
+    <div class="header">
+      <h2>Register</h2>
+      {% comment %} <legend class="f50 fw6 ph0 mh0">Register</legend> {% endcomment %}
+    </div>
         <div class="mt3">
         <label class="db fw6 lh-copy f6" for="name">Name</label>
-        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50" type="text" name="name"  id="name" required maxlength="25" minlength="2">
+        <input class="pa2 input-reset ba w-100" type="text" name="name"  id="name" required maxlength="25" minlength="2">
       </div>
       <div class="mt3">
         <label class="db fw6 lh-copy f6" for="username">Username</label>
-        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50" type="text" name="username"  id="username" required maxlength="25" minlength="2">
+        <input class="pa2 input-reset ba w-100" type="text" name="username"  id="username" required maxlength="25" minlength="2">
       </div>
       <div class="mt3">
         <label class="db fw6 lh-copy f6" for="email">Email</label>
-        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50" type="email" name="email"  id="email" required maxlength="25" minlength="2">
+        <input class="pa2 input-reset ba w-100" type="email" name="email"  id="email" required maxlength="25" minlength="2">
       </div>
       <div class="mv3">
         <label class="db fw6 lh-copy f6" for="password">Password</label>
-        <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50" type="password" name="password"  id="password" required maxlength="25" minlength="2">
+        <input class="b pa2 input-reset ba w-100" type="password" name="password"  id="password" required maxlength="25" minlength="2">
       </div>
      <div class="mv3">
         <label class="db fw6 lh-copy f6" for="password2">Confirm Password</label>
-        <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50" type="password" name="password2"  id="password2" required maxlength="25" minlength="2">
+        <input class="b pa2 input-reset ba w-100" type="password" name="password2"  id="password2" required maxlength="25" minlength="2">
       </div>
       </div>
-      <label class="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"> Remember me</label>
     </fieldset>
-    <div class="">
+    <div class="register-btn">
       <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register">
     </div>
     <div class="lh-copy mt3">
@@ -44,5 +45,5 @@
   </form>
 </main>
 </form>
-
+</div>
 {% endblock %}

@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-<main>
   <div class="camper-container">
     <div class="camper-info">
       <div class="camper-name">
@@ -14,8 +13,10 @@
     {% endif %}
         {% csrf_token %}
           {{ form.as_p }}
+          <div class="camper-btns">
             <button type="submit">Submit</button>
             <a href="{% url 'camper' %}">Cancel</a>
+          </div>
       </form>
     </div>
   </div>
