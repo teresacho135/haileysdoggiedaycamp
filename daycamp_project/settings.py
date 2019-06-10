@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'daycamp',
     'django_extensions',
-    'accounts'
+    'accounts',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,9 @@ STATIC_URL = '/static/'
 # adds media files 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
+
+#cripsy template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #Configures Django App for Heroku
 django_heroku.settings(locals())
